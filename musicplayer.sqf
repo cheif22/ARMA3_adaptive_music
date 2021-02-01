@@ -1,3 +1,5 @@
+params [_stress, _isday]
+
 // This is where the mod will check for different senarios.
 
 private _rain = 
