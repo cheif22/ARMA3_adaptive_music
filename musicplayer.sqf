@@ -3,3 +3,4 @@
 private _rain = 
 private _fog = 
 private _isinvehicle = 0
+Private _Combat = if (_Stress > 30)
