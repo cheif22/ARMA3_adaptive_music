@@ -20,4 +20,5 @@ player addEventHandler
     }
 ];
 
+//return value back to Parameters.sqf
 _changer
