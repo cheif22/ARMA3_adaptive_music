@@ -1,6 +1,6 @@
 //To elevate stress levels if you are being shot at.
 
-params ["_changer", "_stress"]
+params ["_stress"]
 
 player addEventHandler
 ["firedNear",
