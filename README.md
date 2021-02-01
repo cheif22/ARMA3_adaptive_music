@@ -21,10 +21,29 @@ This mod is a completely dynamic mod that changes the music based on the player'
 
 The current build on the steam workshop has the current soundsets.
 
-# On foot (non combat)
-  - Day/Night Cycle
+# On foot (non-combat)
+  - Day/Night Cycle 
   - Rain weather
   - Fog weather
-  - Skydiving (or when character is out of a vehicle over 100 meters above any surface).
-  - Scuba Diving (or when under 5 meters under water).
+  - Skydiving (or when character is out of a vehicle over 100 meters above any surface.)
+  - Scuba Diving (or when under 5 meters under water.)
 
+# Vehicle (non-combat
+  - Cars (invoves any wheeled APCs or cars.)
+  - Tanks (invoves any Tracked vehicles.)
+  - Helicopters (involves anything with a helicopter class.)
+  - Planes (involves anything with a plane class.)
+  - Submarines (technically they classify as a boat but will enable when under 10 meters under water.)
+  - Turrets (since it is basically infantry based, it will follow On foot sound sets.)
+
+# (combat)
+  - Infantry Day/Night (will follow the same sound sets unless it gets made into two different ones.)
+  - Infantry Fog (made this one origionally for horror but is a soundset.)
+  - Vehicle (Combat for all vehicles.)
+  
+ 
+ # What Kinds of future soundsets or features I want to add?
+ 
+  - Some better music fading or transiton techniques for sure.
+  - Possibly a soundset that fires off when an enemy is near by (within 20 meters or something. If it is whenever an enemy gets alerted, that will not be possible for me)
+  
