@@ -1,5 +1,5 @@
 # ARMA3_adaptive_music
-[h1][b]Adaptive music mod framework for arma 3.[/b][/h1]
+# Adaptive music mod framework for arma 3.
 
 
 Hello All,
