@@ -54,11 +54,9 @@ _infantrycombatTracks = "'infantrycombat' in getArray(_x >> 'parameters')" confi
  
 //infantry fog combat
 _infantryfogcombatTracks = "'infantryfogcombat' in getArray(_x >> 'parameters')" configClasses (configFile >> "CfgMusic");
-
-
  
 //These tracks are when you are under attack in a vehicle. If you are not under attack, it will then follow back to your vehicle's corosponding playset.
-//_vehiclecombatTracks = "'vehiclecombat' in getArray(_x >> 'parameters')" configClasses (configFile >> "CfgMusic");
+_vehiclecombatTracks = "'vehiclecombat' in getArray(_x >> 'parameters')" configClasses (configFile >> "CfgMusic");
 
  
 //Everything below the line is the main guts that control the mod. If you want to test some different ideas or make edits, I am not responsible
@@ -73,7 +71,7 @@ While (true) do
 	{
 		Switch (true) do
 		//Check if player is in combat
-		case (battleIntensity > 10):
+		case (battleIntensity < 10):
 		//peacetime
 		{
 		_selecter = 0;
@@ -91,33 +89,81 @@ While (true) do
 					{
 						case (vehicle player isKindOf "car"):
 						{
-						
+			   				//in car based vehicles
+					                _selecter = configName selectRandom _carTracks ;
+                					playMusic _selecter;
+                					duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+           
+               						if(debugging == 1) then
+                					{
+								hint format ["Changed music to InCarSafeMusic Trackname: %1", (_selecter)];
+							};
+					
 						};
 						
 						case (vehicle player isKindOf "tank"):
 						{
-						
+							//in tank based vehicles
+					                _selecter = configName selectRandom _tankTracks;
+							playMusic _selecter;
+                					duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+							if(debugging == 1) then
+                					{
+								hint format ["Changed music to InTankSafeMusic Trackname: %1", (_selecter)];
+							};						
 						};
 						
 						case (vehicle player isKindOf "ship"):
 						{
-						
+							//in boat based vehicles
+							_selecter = configName selectRandom _boatTracks;
+							playMusic _selecter;
+                					_duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+           
+               						if(debugging == 1) then
+                					{
+                	   					hint format ["Changed music to InboatSafeMusic Trackname: %1", (_selecter)];
+                					};	
 						};
 						
 						case (((vehicle player) Iskindof "ship") && (((getPosASL (vehicle player)) select 2) <= -5)):
 						{
-						
+							//in submarine based vehicles
+							_selecter = configName selectRandom _subtracks;
+							playMusic _selecter;
+                					duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+           
+               						if(debugging == 1) then
+                					{
+                   						hint format ["Changed music to InsubmarineSafeMusic Trackname: %1", (_selecter)];
+                					};
 						};
 						
 						case (vehicle player isKindOf "helicopter"):
 						{
-						
+							//in helicopter vehicles
+							_selecter = configName selectRandom _heliTracks;
+							playMusic _selecter;
+                					duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+           
+               						if(debugging == 1) then
+                					{
+                		   				hint format ["Changed music to InhelicopterSafeMusic Trackname: %1", (_selecter)];
+                					};
 					
 						};
 						
 						case (vehicle player isKindOf "plane"):
 						{
-						
+							//in plane vehicles
+							_selecter = configName selectRandom _tensionTracks;
+							playMusic _selecter;
+                					duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+           
+               						if(debugging == 1) then
+                					{
+                   						hint format ["Changed music to InplaneSafeMusic Trackname: %1", (_selecter)];
+                					};
 					
 						};
 						
@@ -129,23 +175,34 @@ While (true) do
 							
 								case (isDay == 0):
 								{
-								
+									//playing stealth music at night
+									_selecter = configName selectRandom _nightTracks;
+									playMusic _selecter;
+									duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+					   
+									if(debugging == 1) then
+									{
+										hint format ["Changed music to night Trackname: %1", (_selecter)];						
+						};
 								};
 								
 								case (isDay == 1):
 								{
-								
+									//Normal music
+									_selecter = configName selectRandom _dayTracks;
+									playMusic _selecter;
+									duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+						
+									if(debugging == 1) then
+									{
+										hint format ["Changed music to day Trackname: %1", (_selecter)];							
+									};
 								};
 							
 							
 							};
 					
 						};
-						
-
-						
-						
-						
 						
 					};				
 				};
@@ -158,33 +215,88 @@ While (true) do
 					{
 						case (isDay == 0):
 						{
+							//playing stealth music at night
+							wasInCarBefore = 0;
+							_selecter = configName selectRandom _nightTracks;
+							playMusic _selecter;
+                					duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+               
+                					if(debugging == 1) then
+                					{
+                    						hint format ["Changed music to night Trackname: %1", (_selecter)];                
+							};
 						
 						};
 						
-						case (isDay ==1):
+						case (isDay == 1):
 						{
-						
+							//Normal music
+							wasInCarBefore = 0;
+							_selecter = configName selectRandom _dayTracks;
+							playMusic  _selecter;
+							duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+				
+							if(debugging == 1) then
+							{
+								hint format ["Changed music to day Trackname: %1", (_selecter)];					
+							};
 						};
 						
 						case (fog >= 0.3):
 						{
-						
+							//playing fog music
+							wasInCarBefore = 0;
+							_selecter = configName selectRandom _fogTracks;
+							playMusic _selecter;
+							duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+              
+							if(debugging == 1) then
+							{
+								hint format ["Changed music to Fog Music Trackname: %1", (_selecter)];				
+							};
 						};
 						
 						case (rain >= 0.5):
 						{
-						
+							//playing rain music
+							wasInCarBefore = 0;
+							_selecter = configName selectRandom _tensionTracks;
+							playMusic _selecter;
+							duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+              
+							if(debugging == 1) then
+							{
+								hint format ["Changed music to Rain Music Trackname: %1", (_selecter)];				
+							};
 						};
 						
 						case (getPosATL player select 2 >= 100):
 						{
-						
+							//playing Skydiving songs
+							wasInCarBefore = 0;
+							_selecter = configName selectRandom _fallTracks;
+							playMusic _selecter;
+							duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+              
+							if(debugging == 1) then
+							{
+								hint format ["Changed music to Skydiving Music Trackname: %1", (_selecter)];				
+							};
 					
 						};
 
 						case (getPosASL player select 2 <= -5):
 						{
-						
+							//playing scubadiving songs
+							wasInCarBefore = 0;
+							_selecter = configName selectRandom _scubaTracks;
+							playMusic _selecter;
+							duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
+              
+							if(debugging == 1) then
+							{
+								hint format ["Changed music to Scubadiving Music Trackname: %1", (_selecter)];				
+							};
 					
 						};
 						
@@ -197,7 +309,7 @@ While (true) do
 		durationSinceTrackWasStarted = 0;
 		isMusicCurrentlyPlaying = 1;
 		};
-		case (battleIntensity < 10):
+		case (battleIntensity > 10):
 		//combat
 		{
 		_selecter = 0;
