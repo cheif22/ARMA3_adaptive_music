@@ -216,7 +216,6 @@ While (true) do
 						case (isDay == 0):
 						{
 							//playing stealth music at night
-							wasInCarBefore = 0;
 							_selecter = configName selectRandom _nightTracks;
 							playMusic _selecter;
                 					duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
@@ -231,7 +230,6 @@ While (true) do
 						case (isDay == 1):
 						{
 							//Normal music
-							wasInCarBefore = 0;
 							_selecter = configName selectRandom _dayTracks;
 							playMusic  _selecter;
 							duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
@@ -245,7 +243,6 @@ While (true) do
 						case (fog >= 0.3):
 						{
 							//playing fog music
-							wasInCarBefore = 0;
 							_selecter = configName selectRandom _fogTracks;
 							playMusic _selecter;
 							duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
@@ -259,7 +256,6 @@ While (true) do
 						case (rain >= 0.5):
 						{
 							//playing rain music
-							wasInCarBefore = 0;
 							_selecter = configName selectRandom _tensionTracks;
 							playMusic _selecter;
 							duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
@@ -273,7 +269,6 @@ While (true) do
 						case (getPosATL player select 2 >= 100):
 						{
 							//playing Skydiving songs
-							wasInCarBefore = 0;
 							_selecter = configName selectRandom _fallTracks;
 							playMusic _selecter;
 							duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
@@ -288,7 +283,6 @@ While (true) do
 						case (getPosASL player select 2 <= -5):
 						{
 							//playing scubadiving songs
-							wasInCarBefore = 0;
 							_selecter = configName selectRandom _scubaTracks;
 							playMusic _selecter;
 							duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
