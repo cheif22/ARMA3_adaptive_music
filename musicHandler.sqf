@@ -1,5 +1,5 @@
 //Arma 3 Music Script
-//Made by Niklas Brettschneider
+//Original script made by Niklas Brettschneider
 //Music detection and script fixes made by Cheif22
 
 //The Playset lines below are where the music classnames will go. Enter 
