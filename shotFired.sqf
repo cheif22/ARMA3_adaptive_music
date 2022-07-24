@@ -1,5 +1,6 @@
 //Arma 3 Music Script
-//Made by Niklas Brettschneider
+//Original script made by Niklas Brettschneider
+//Edits and fixes made by Cheif22
 
 //All shots are monitored and processed here.
 
@@ -13,4 +14,4 @@ _projectile = _this select 6; // Object - Object of the projectile that was shot
 
 hint format ["Shot fired with Weapon %1\n from distance %2", _firer, _weapon, _distance];
 
-[1] execVM "bf_Adapt\battleIntensityChange.sqf";
+[1] execVM "A3_Adapt\battleIntensityChange.sqf";
