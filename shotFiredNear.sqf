@@ -1,5 +1,6 @@
 //Arma 3 Music Script
-//Made by Niklas Brettschneider
+//Original script made by Niklas Brettschneider
+//Fixes and edits made by Cheif22
 
 //Here the shots near the player are monitored and processed.
 
@@ -13,4 +14,4 @@ _ammo = _this select 6; // String - Ammo use
 
 //hint format ["Shot fired with from %1\nwith Weapon %2\n from distance %3", _firer, _weapon, _distance];
 
-[1, "Shot"] execVM "bf_Adapt\battleIntensityChange.sqf";
+[1, "Shot"] execVM "A3_Adapt\battleIntensityChange.sqf";
