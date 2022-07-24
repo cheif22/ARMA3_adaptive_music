@@ -1,5 +1,6 @@
 # Adaptive music mod framework for arma 3.
 
+Latest framework update: 7/24/2022
 
 Hello All,
 
