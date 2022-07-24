@@ -1,5 +1,6 @@
 //Arma 3 Music Script
-//Made by Niklas Brettschneider
+//Original Script made by Niklas Brettschneider
+//Edits and fixes made by Cheif22
 
 //Events to check the fight add
 //Get all the shots within a 69m range.
