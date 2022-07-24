@@ -1,5 +1,6 @@
 //Arma 3 Music Script
-//Made by Niklas Brettschneider
+//Original Script made by Niklas Brettschneider
+//Fixes and edits made by Cheif22
 
 //Hier werden die Schüsse in der Nähe des Spielers überwacht und verarbeitet.
 
@@ -9,4 +10,4 @@ _damage = _this select 2; // Number - Resulting level of damage
 
 //hint format ["Shot fired with from %1\nwith Weapon %2\n from distance %3", _firer, _weapon, _distance];
 
-[10, "DamageTaken"] execVM "bf_Adapt\battleIntensityChange.sqf";
+[10, "DamageTaken"] execVM "A3_Adapt\battleIntensityChange.sqf";
