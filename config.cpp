@@ -1,7 +1,7 @@
 class CfgPatches
 {
 
-	class bf_Adapt
+	class A3_Adapt
 	{
 		units[] = {};
 		weapons[] = {};
