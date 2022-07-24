@@ -1,5 +1,6 @@
 //Arma 3 Music Script
-//Made by Niklas Brettschneider
+//Original Script made by Niklas Brettschneider
+//Edited and fixed by Cheif22
 
 //The change in battle intensity is monitored here
 
