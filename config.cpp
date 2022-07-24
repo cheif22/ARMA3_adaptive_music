@@ -154,5 +154,5 @@ class CfgMusic
 
 class Extended_PostInit_EventHandlers
 {
- bf_Adapt_Post_Init = "bf_Adapt_Post_Init_Var = [] execVM ""bf_Adapt\init.sqf""";
+ bf_Adapt_Post_Init = "bf_Adapt_Post_Init_Var = [] execVM ""A3_Adapt\init.sqf""";
 };
