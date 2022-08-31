@@ -15,7 +15,7 @@ class CfgMusic
 	//class Track_Name
 	//{
 	////name = "Track Name (Best left in Comment mode)";
-	//sound[] = {"bf_Adapt\music\track_name.ogg",1.0,1.0};
+	//sound[] = {"A3_Adapt\music\track_name.ogg",1.0,1.0};
 	
 	//duration=length of audio in seconds;
 	//parameters[]    = {"parameter"}; 
