@@ -131,28 +131,14 @@ class CfgMusic
 
 
 
-
-
-
-
-
-
-	
-//Leave this audio class alone as it plays a role in song switching.
-		class Empty
-	{
-		//name = "Empty track";
-		sound[] = {"bf_Adapt\Empty.ogg",1.0,1.0};
-		duration = 0;
-
-	};
-
-
-
-
 };
 
 class Extended_PostInit_EventHandlers
 {
- bf_Adapt_Post_Init = "bf_Adapt_Post_Init_Var = [] execVM ""A3_Adapt\init.sqf""";
+	A3_Adapt_Post_Init = "bf_Adapt_Post_Init_Var = [] execVM ""A3_Adapt\init.sqf""";
+};
+
+class Extended_PreInit_EventHandlers
+{
+	clientInit="call compilescript [""A3_adapt\CBAsetting.sqf""]";
 };
