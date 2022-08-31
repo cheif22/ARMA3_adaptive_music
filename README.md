@@ -1,6 +1,6 @@
 # Adaptive music mod framework for arma 3.
 
-Latest framework update: 7/24/2022
+Latest framework update: 8/31/2022
 
 Hello All,
 
@@ -48,3 +48,6 @@ The current build on the steam workshop has the current soundsets.
   - Some better music fading or transiton techniques for sure.
   - Possibly a soundset that fires off when an enemy is near by (within 20 meters or something. If it is whenever an enemy gets alerted, that will not be possible for me)
   
+# Contributers
+ - Phenosi
+ - Der Kroi
