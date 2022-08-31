@@ -50,7 +50,7 @@ class CfgMusic
 	class Track_Name1
 	{
 	//name = "Track Name (Best left in Comment mode)";
-	sound[] = {"bf_Adapt\music\track_name1.ogg",1.0,1.0};
+	sound[] = {"A3_Adapt\music\track_name1.ogg",1.0,1.0};
 	
 	duration=length of audio in seconds;
 	parameters[]    = {"daytime"}; 
@@ -59,7 +59,7 @@ class CfgMusic
 	class Track_Name2
 	{
 	//name = "Track Name (Best left in Comment mode)";
-	sound[] = {"bf_Adapt\music\track_name2.ogg",1.0,1.0};
+	sound[] = {"A3_Adapt\music\track_name2.ogg",1.0,1.0};
 	
 	duration=length of audio in seconds;
 	parameters[]    = {"daytime", "car", "tank"}; 
@@ -68,7 +68,7 @@ class CfgMusic
 	class Track_Name3
 	{
 	//name = "Track Name (Best left in Comment mode)";
-	sound[] = {"bf_Adapt\music\track_name3.ogg",1.0,1.0};
+	sound[] = {"A3_Adapt\music\track_name3.ogg",1.0,1.0};
 	
 	duration=length of audio in seconds;
 	parameters[]    = {"nighttime", "fog", "rain"}; 
@@ -77,7 +77,7 @@ class CfgMusic
 	class Track_Name4
 	{
 	//name = "Track Name (Best left in Comment mode)";
-	sound[] = {"bf_Adapt\music\track_name4.ogg",1.0,1.0};
+	sound[] = {"A3_Adapt\music\track_name4.ogg",1.0,1.0};
 	
 	duration=length of audio in seconds;
 	parameters[]    = {"infantrycombat", "infantryfogcombat", "vehiclecombat"}; 
@@ -86,7 +86,7 @@ class CfgMusic
 	class Track_Name5
 	{
 	//name = "Track Name (Best left in Comment mode)";
-	sound[] = {"bf_Adapt\music\track_name5.ogg",1.0,1.0};
+	sound[] = {"A3_Adapt\music\track_name5.ogg",1.0,1.0};
 	
 	duration=length of audio in seconds;
 	parameters[]    = {"scubadive", "submarine", "boat"}; 
@@ -95,7 +95,7 @@ class CfgMusic
 	class Track_Name6
 	{
 	//name = "Track Name (Best left in Comment mode)";
-	sound[] = {"bf_Adapt\music\track_name6.ogg",1.0,1.0};
+	sound[] = {"A3_Adapt\music\track_name6.ogg",1.0,1.0};
 	
 	duration=length of audio in seconds;
 	parameters[]    = {"scubadive", "submarine", "boat"}; 
@@ -104,7 +104,7 @@ class CfgMusic
 	class Track_Name7
 	{
 	//name = "Track Name (Best left in Comment mode)";
-	sound[] = {"bf_Adapt\music\track_name7.ogg",1.0,1.0};
+	sound[] = {"A3_Adapt\music\track_name7.ogg",1.0,1.0};
 	
 	duration=length of audio in seconds;
 	parameters[]    = {"helicopter", "plane", "skydive"}; 
@@ -113,7 +113,7 @@ class CfgMusic
 	class Track_Name8
 	{
 	//name = "Track Name (Best left in Comment mode)";
-	sound[] = {"bf_Adapt\music\track_name8.ogg",1.0,1.0};
+	sound[] = {"A3_Adapt\music\track_name8.ogg",1.0,1.0};
 	
 	duration=length of audio in seconds;
 	parameters[]    = {"car", "tank", "plane"}; 
@@ -122,7 +122,7 @@ class CfgMusic
 	class Track_Name9
 	{
 	//name = "Track Name (Best left in Comment mode)";
-	sound[] = {"bf_Adapt\music\track_name9.ogg",1.0,1.0};
+	sound[] = {"A3_Adapt\music\track_name9.ogg",1.0,1.0};
 	
 	duration=length of audio in seconds;
 	parameters[]    = {"scubadive", "rain", "fog"}; 
@@ -135,10 +135,15 @@ class CfgMusic
 
 class Extended_PostInit_EventHandlers
 {
-	A3_Adapt_Post_Init = "bf_Adapt_Post_Init_Var = [] execVM ""A3_Adapt\init.sqf""";
+	class A3_adapt
+	{
+		clientInit="[] execVM ""A3_adapt\init.sqf""";
+	};
 };
-
 class Extended_PreInit_EventHandlers
 {
-	clientInit="call compilescript [""A3_adapt\CBAsetting.sqf""]";
+	class A3_adapt
+	{
+		clientInit="call compilescript [""A3_adapt\CBAsetting.sqf""]";
+	};
 };
