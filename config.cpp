@@ -133,6 +133,8 @@ class CfgMusic
 
 };
 
+
+//Script fire offs fixed by Phenosi
 class Extended_PostInit_EventHandlers
 {
 	class A3_adapt
