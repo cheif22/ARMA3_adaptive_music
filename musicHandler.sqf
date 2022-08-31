@@ -84,7 +84,7 @@ currentTrack = "";
 
 //How intense is the fight right now?
 battleIntensity = 0;
-//Max Wert, damit hier nichts aus dem Ruder läuft
+//Max value, so that nothing gets out of hand here
 maxBattleIntensity = 60;
 
 //how much should it sink every second?
@@ -148,7 +148,7 @@ currentTrack = "";
 
 //How intense is the fight right now?
 battleIntensity = 0;
-//Max Wert, damit hier nichts aus dem Ruder läuft
+//Max value, so that nothing gets out of hand here
 maxBattleIntensity = 60;
 
 //how much should it sink every second?
