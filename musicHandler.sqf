@@ -1,6 +1,7 @@
 //Arma 3 Music Script
 //Original script made by Niklas Brettschneider
 //Music detection and script fixes made by Cheif22
+//Other fixes and additions made by Phenosi
 
 //The Playset lines below are where the music classnames will go. Enter 
 
@@ -65,8 +66,6 @@ _vehiclecombatTracks = "'vehiclecombat' in getArray(_x >> 'parameters')" configC
 _CarTransition = ["Empty"];
 
 
-
-
 if (isMultiplayer) then
 {
 isMusicActive = 1;
@@ -97,7 +96,7 @@ isDay = 1;
 //volume
 Volume = 0.5;
 
-ExecVm "A3_Adapt\addEventHandlerForMusic.sqf";
+ExecVm "A3_adapt\addEventHandlerForMusic.sqf";
 
 
 
@@ -121,11 +120,11 @@ while{true} do
 		};
 		
 		//standart lower Battle intensity
-		[battleIntensityLowerer] ExecVm "A3_Adapt\battleIntensityChange.sqf";
+		[battleIntensityLowerer] ExecVm "A3_adapt\battleIntensityChange.sqf";
 		
 
 		
-		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "A3_Adapt\musicPlayer.sqf";
+		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "A3_adapt\musicPlayer.sqf";
 		
 	};
 	sleep(0.2);
@@ -161,7 +160,7 @@ isDay = 1;
 //volume
 Volume = 0.5;
 
-ExecVm "A3_Adapt\addEventHandlerForMusic.sqf";
+ExecVm "A3_adapt\addEventHandlerForMusic.sqf";
 
 
 
@@ -183,10 +182,10 @@ while{true} do
 		};
 		
 		//standart lower Battle intensity
-		[battleIntensityLowerer] ExecVm "A3_Adapt\battleIntensityChange.sqf";
+		[battleIntensityLowerer] ExecVm "A3_adapt\battleIntensityChange.sqf";
 		
 		
-		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "A3_Adapt\musicPlayer.sqf";
+		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "A3_adapt\musicPlayer.sqf";
 		
 	};
 	sleep(0.2);
