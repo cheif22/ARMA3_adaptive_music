@@ -2,7 +2,7 @@
 //Original Script made by Niklas Brettschneider
 //Fixes and edits made by Cheif22
 
-//Hier werden die Schüsse in der Nähe des Spielers überwacht und verarbeitet.
+//This is where the shots near the player are monitored and processed.
 
 _unit = _this select 0; // Object - Object the event handler is assigned to
 _selectionName = _this select 1; // String - Name of the selection where the unit was damaged
