@@ -2,6 +2,7 @@
 //Original script Made by Niklas Brettschneider
 //Cheif22 - created Multiplayer Function, Fixed and corrected "{}" placements, feature enhancements.
 //Der Kroi - The Wizard who has resolved the infamous black error box pre-launch and helped with correcting some of the detection lines.
+//Phenosi - Added in CBA slider for Transition changing and other fixes.
 
 
 params ["_dayTracks", "_nightTracks", "_rainTracks", "_fogTracks", "_fallTracks", "_scubaTracks", "_carTracks", "_tankTracks", "_boatTracks", "_subtracks", "_heliTracks", "_planeTracks", "_infantrycombatTracks", "_infantryfogcombatTracks", "_vehiclecombatTracks"];
@@ -10,9 +11,9 @@ params ["_dayTracks", "_nightTracks", "_rainTracks", "_fogTracks", "_fallTracks"
 //Transition values will delay the song changes in seconds
 
 //transition between out of combat tracks.
-_safeTransitionDuration = 15;
+_safeTransitionDuration = (A3_Adapt_SafeDuration);
 //transition between in combat tracks
-_combatTransitionDuration = 5;
+_combatTransitionDuration = (A3_Adapt_CombatDuration);
 
  
  
@@ -20,6 +21,13 @@ if (isMultiplayer) then
 {
 //see if the song is over
 durationSinceTrackWasStarted = durationSinceTrackWasStarted + 0.2;
+
+if isnil (_selecter) then 
+{ 
+   _selecter = Empty;
+};
+
+duration =  getNumber (configFile >> "CfgMusic" >> _selecter >> "duration");
 
 if(durationSinceTrackWasStarted > duration - 2) then
 {
@@ -133,12 +141,8 @@ if(durationSinceTrackWasStarted > duration - 10) then
             };
  
             _veh setVariable ["DK_zikIdEh", nil];
- 
-/*          _this execVM "bf_Adapt\shotFiredNear.sqf",
-            _this execVM "bf_Adapt\damageTaken.sqf",
-            _this execVM "bf_Adapt\explosionNear.sqf",
-            _this execVM "bf_Adapt\missileIncoming.sqf",
-*/      }];
+
+         }];
        
         wasInCarBefore = 1;
         //Fight in the vehicle
@@ -431,11 +435,7 @@ if(durationSinceTrackWasStarted > duration - 20) then
  
             _veh setVariable ["DK_zikIdEh", nil];
  
-/*          _this execVM "bf_Adapt\shotFiredNear.sqf",
-            _this execVM "bf_Adapt\damageTaken.sqf",
-            _this execVM "bf_Adapt\explosionNear.sqf",
-            _this execVM "bf_Adapt\missileIncoming.sqf",
-*/      }];
+     }];
            
             wasInCarBefore = 1;         
 		   
@@ -563,11 +563,7 @@ if(durationSinceTrackWasStarted > duration - 10) then
  
             _veh setVariable ["DK_zikIdEh", nil];
  
-/*          _this execVM "A3_Adapt\shotFiredNear.sqf",
-            _this execVM "A3_Adapt\damageTaken.sqf",
-            _this execVM "A3_Adapt\explosionNear.sqf",
-            _this execVM "A3_Adapt\missileIncoming.sqf",
-*/      }];
+      }];
        
         wasInCarBefore = 1;
         //Fight in the vehicle
@@ -858,12 +854,7 @@ if(durationSinceTrackWasStarted > duration - 20) then
             };
  
             _veh setVariable ["DK_zikIdEh", nil];
- 
-/*          _this execVM "A3_Adapt\shotFiredNear.sqf",
-            _this execVM "A3_Adapt\damageTaken.sqf",
-            _this execVM "A3_Adapt\explosionNear.sqf",
-            _this execVM "A3_Adapt\missileIncoming.sqf",
-*/      }];
+       }];
            
             wasInCarBefore = 1;         
 		   
