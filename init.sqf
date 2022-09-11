@@ -2,5 +2,5 @@
 
 if (hasInterface) then
 {
-ExecVm "MC_Adapt\musicHandler.sqf";
+ExecVm "A3_Adapt\musicHandler.sqf";
 };
