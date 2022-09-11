@@ -1,7 +1,7 @@
 //Arma 3 Music Script
 //Original script made by Niklas Brettschneider
 //Music detection and script fixes made by Cheif22
-//Other fixes and additions made by Phenosi
+//CBA Menu Design made by Phenosi
 
 //The Playset lines below are where the music classnames will go. Enter 
 
@@ -66,12 +66,24 @@ _vehiclecombatTracks = "'vehiclecombat' in getArray(_x >> 'parameters')" configC
 _CarTransition = ["Empty"];
 
 
+//-------------------------------------------------------------------------------------
+//CBA Menu
+["MC_Adapt_setting", "CHECKBOX", "Enable Adaptive Music (Applies on next load)", ["Adaptive Modern Combat Music", "Adaptive Music"], true, 0, {}, true] call CBA_fnc_addSetting;
+
+["MC_Adapt_debug", "CHECKBOX", "Enable debug mode (Applies on next load)", ["Adaptive Modern Combat Music", "Adaptive Music"], false, 0, {}, true] call CBA_fnc_addSetting; 
+
+["MC_Adapt_SafeDuration", "SLIDER", "Safe track transition duration (Applies on next load)", ["Adaptive Modern Combat Music", "Adaptive Music"], [1, 300, 15, 0], 0, {}, true] call CBA_fnc_addSetting;
+
+["MC_Adapt_CombatDuration", "SLIDER", "Combat track transition duration (Applies on next load)", ["Adaptive Modern Combat Music", "Adaptive Music"], [1, 300, 5, 0], 0, {}, true] call CBA_fnc_addSetting;
+
+
+
 if (isMultiplayer) then
 {
-isMusicActive = 1;
+if (MC_Adapt_setting) then { isMusicActive = 1;} else {isMusicActive = 0;};
 duration = 0;
 
-debugging = 0;
+If (MC_Adapt_debug) then {debugging =1;} else {debugging = 0;};
 
 durationSinceTrackWasStarted = 0;
 wasInCarBefore = 0;
@@ -84,7 +96,7 @@ currentTrack = "";
 
 //How intense is the fight right now?
 battleIntensity = 0;
-//Max value, so that nothing gets out of hand here
+//Max Wert, damit hier nichts aus dem Ruder läuft
 maxBattleIntensity = 60;
 
 //how much should it sink every second?
@@ -96,7 +108,7 @@ isDay = 1;
 //volume
 Volume = 0.5;
 
-ExecVm "A3_adapt\addEventHandlerForMusic.sqf";
+ExecVm "MC_Adapt\addEventHandlerForMusic.sqf";
 
 
 
@@ -120,11 +132,11 @@ while{true} do
 		};
 		
 		//standart lower Battle intensity
-		[battleIntensityLowerer] ExecVm "A3_adapt\battleIntensityChange.sqf";
+		[battleIntensityLowerer] ExecVm "MC_Adapt\battleIntensityChange.sqf";
 		
 
 		
-		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "A3_adapt\musicPlayer.sqf";
+		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "MC_Adapt\musicPlayer.sqf";
 		
 	};
 	sleep(0.2);
@@ -132,10 +144,10 @@ while{true} do
 }
 else
 {
-isMusicActive = 1;
+if (MC_Adapt_setting) then { isMusicActive = 1;} else {isMusicActive = 0;};
 duration = 0;
 
-debugging = 0;
+If (MC_Adapt_debug) then {debugging =1;} else {debugging = 0;};
 
 durationSinceTrackWasStarted = 0;
 wasInCarBefore = 0;
@@ -148,7 +160,7 @@ currentTrack = "";
 
 //How intense is the fight right now?
 battleIntensity = 0;
-//Max value, so that nothing gets out of hand here
+//Max Wert, damit hier nichts aus dem Ruder läuft
 maxBattleIntensity = 60;
 
 //how much should it sink every second?
@@ -160,7 +172,7 @@ isDay = 1;
 //volume
 Volume = 0.5;
 
-ExecVm "A3_adapt\addEventHandlerForMusic.sqf";
+ExecVm "MC_Adapt\addEventHandlerForMusic.sqf";
 
 
 
@@ -182,10 +194,10 @@ while{true} do
 		};
 		
 		//standart lower Battle intensity
-		[battleIntensityLowerer] ExecVm "A3_adapt\battleIntensityChange.sqf";
+		[battleIntensityLowerer] ExecVm "MC_Adapt\battleIntensityChange.sqf";
 		
 		
-		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "A3_adapt\musicPlayer.sqf";
+		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "MC_Adapt\musicPlayer.sqf";
 		
 	};
 	sleep(0.2);
