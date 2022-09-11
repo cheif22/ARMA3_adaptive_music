@@ -68,22 +68,22 @@ _CarTransition = ["Empty"];
 
 //-------------------------------------------------------------------------------------
 //CBA Menu
-["MC_Adapt_setting", "CHECKBOX", "Enable Adaptive Music (Applies on next load)", ["Adaptive Modern Combat Music", "Adaptive Music"], true, 0, {}, true] call CBA_fnc_addSetting;
+["A3_Adapt_setting", "CHECKBOX", "Enable Adaptive Music (Applies on next load)", ["Adaptive Music Template", "Adaptive Music"], true, 0, {}, true] call CBA_fnc_addSetting;
 
-["MC_Adapt_debug", "CHECKBOX", "Enable debug mode (Applies on next load)", ["Adaptive Modern Combat Music", "Adaptive Music"], false, 0, {}, true] call CBA_fnc_addSetting; 
+["A3_Adapt_debug", "CHECKBOX", "Enable debug mode (Applies on next load)", ["Adaptive Music Template", "Adaptive Music"], false, 0, {}, true] call CBA_fnc_addSetting; 
 
-["MC_Adapt_SafeDuration", "SLIDER", "Safe track transition duration (Applies on next load)", ["Adaptive Modern Combat Music", "Adaptive Music"], [1, 300, 15, 0], 0, {}, true] call CBA_fnc_addSetting;
+["A3_Adapt_SafeDuration", "SLIDER", "Safe track transition duration (Applies on next load)", ["Adaptive Music Template", "Adaptive Music"], [1, 300, 15, 0], 0, {}, true] call CBA_fnc_addSetting;
 
-["MC_Adapt_CombatDuration", "SLIDER", "Combat track transition duration (Applies on next load)", ["Adaptive Modern Combat Music", "Adaptive Music"], [1, 300, 5, 0], 0, {}, true] call CBA_fnc_addSetting;
+["A3_Adapt_CombatDuration", "SLIDER", "Combat track transition duration (Applies on next load)", ["Adaptive Music Template", "Adaptive Music"], [1, 300, 5, 0], 0, {}, true] call CBA_fnc_addSetting;
 
-
+//-------------------------------------------------------------------------------------
 
 if (isMultiplayer) then
 {
-if (MC_Adapt_setting) then { isMusicActive = 1;} else {isMusicActive = 0;};
+if (A3_Adapt_setting) then { isMusicActive = 1;} else {isMusicActive = 0;};
 duration = 0;
 
-If (MC_Adapt_debug) then {debugging =1;} else {debugging = 0;};
+If (A3_Adapt_debug) then {debugging =1;} else {debugging = 0;};
 
 durationSinceTrackWasStarted = 0;
 wasInCarBefore = 0;
@@ -96,7 +96,7 @@ currentTrack = "";
 
 //How intense is the fight right now?
 battleIntensity = 0;
-//Max Wert, damit hier nichts aus dem Ruder läuft
+//Max value, so that nothing gets out of hand here
 maxBattleIntensity = 60;
 
 //how much should it sink every second?
@@ -108,7 +108,7 @@ isDay = 1;
 //volume
 Volume = 0.5;
 
-ExecVm "MC_Adapt\addEventHandlerForMusic.sqf";
+ExecVm "A3_Adapt\addEventHandlerForMusic.sqf";
 
 
 
@@ -132,7 +132,7 @@ while{true} do
 		};
 		
 		//standart lower Battle intensity
-		[battleIntensityLowerer] ExecVm "MC_Adapt\battleIntensityChange.sqf";
+		[battleIntensityLowerer] ExecVm "A3_Adapt\battleIntensityChange.sqf";
 		
 
 		
@@ -144,10 +144,10 @@ while{true} do
 }
 else
 {
-if (MC_Adapt_setting) then { isMusicActive = 1;} else {isMusicActive = 0;};
+if (A3_Adapt_setting) then { isMusicActive = 1;} else {isMusicActive = 0;};
 duration = 0;
 
-If (MC_Adapt_debug) then {debugging =1;} else {debugging = 0;};
+If (A3_Adapt_debug) then {debugging =1;} else {debugging = 0;};
 
 durationSinceTrackWasStarted = 0;
 wasInCarBefore = 0;
@@ -160,7 +160,7 @@ currentTrack = "";
 
 //How intense is the fight right now?
 battleIntensity = 0;
-//Max Wert, damit hier nichts aus dem Ruder läuft
+//Max value, so that nothing gets out of hand here
 maxBattleIntensity = 60;
 
 //how much should it sink every second?
@@ -172,7 +172,7 @@ isDay = 1;
 //volume
 Volume = 0.5;
 
-ExecVm "MC_Adapt\addEventHandlerForMusic.sqf";
+ExecVm "A3_Adapt\addEventHandlerForMusic.sqf";
 
 
 
@@ -194,7 +194,7 @@ while{true} do
 		};
 		
 		//standart lower Battle intensity
-		[battleIntensityLowerer] ExecVm "MC_Adapt\battleIntensityChange.sqf";
+		[battleIntensityLowerer] ExecVm "A3_Adapt\battleIntensityChange.sqf";
 		
 		
 		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "MC_Adapt\musicPlayer.sqf";
