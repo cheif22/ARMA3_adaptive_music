@@ -137,5 +137,15 @@ class CfgMusic
 //Script fire offs
 class Extended_PostInit_EventHandlers
 {
- MC_Adapt_Post_Init = "A3_Adapt_Post_Init_Var = [] execVM ""A3_Adapt\init.sqf""";
+	class A3_adapt
+	{
+		clientInit="[] execVM ""A3_adapt\init.sqf""";
+	};
+};
+class Extended_PreInit_EventHandlers
+{
+	class A3_adapt
+	{
+		clientInit="call compilescript [""A3_adapt\CBAsetting.sqf""]";
+	};
 };
