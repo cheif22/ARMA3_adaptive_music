@@ -1,7 +1,7 @@
 //Arma 3 Music Script
 //Original script made by Niklas Brettschneider
 //Music detection and script fixes made by Cheif22
-//CBA Menu Design made by Phenosi
+//Other fixes and additions made by Phenosi
 
 //The Playset lines below are where the music classnames will go. Enter 
 
@@ -66,24 +66,12 @@ _vehiclecombatTracks = "'vehiclecombat' in getArray(_x >> 'parameters')" configC
 _CarTransition = ["Empty"];
 
 
-//-------------------------------------------------------------------------------------
-//CBA Menu
-["A3_Adapt_setting", "CHECKBOX", "Enable Adaptive Music (Applies on next load)", ["Adaptive Music Template", "Adaptive Music"], true, 0, {}, true] call CBA_fnc_addSetting;
-
-["A3_Adapt_debug", "CHECKBOX", "Enable debug mode (Applies on next load)", ["Adaptive Music Template", "Adaptive Music"], false, 0, {}, true] call CBA_fnc_addSetting; 
-
-["A3_Adapt_SafeDuration", "SLIDER", "Safe track transition duration (Applies on next load)", ["Adaptive Music Template", "Adaptive Music"], [1, 300, 15, 0], 0, {}, true] call CBA_fnc_addSetting;
-
-["A3_Adapt_CombatDuration", "SLIDER", "Combat track transition duration (Applies on next load)", ["Adaptive Music Template", "Adaptive Music"], [1, 300, 5, 0], 0, {}, true] call CBA_fnc_addSetting;
-
-//-------------------------------------------------------------------------------------
-
 if (isMultiplayer) then
 {
-if (A3_Adapt_setting) then { isMusicActive = 1;} else {isMusicActive = 0;};
+isMusicActive = 1;
 duration = 0;
 
-If (A3_Adapt_debug) then {debugging =1;} else {debugging = 0;};
+debugging = 0;
 
 durationSinceTrackWasStarted = 0;
 wasInCarBefore = 0;
@@ -108,7 +96,7 @@ isDay = 1;
 //volume
 Volume = 0.5;
 
-ExecVm "A3_Adapt\addEventHandlerForMusic.sqf";
+ExecVm "A3_adapt\addEventHandlerForMusic.sqf";
 
 
 
@@ -132,11 +120,11 @@ while{true} do
 		};
 		
 		//standart lower Battle intensity
-		[battleIntensityLowerer] ExecVm "A3_Adapt\battleIntensityChange.sqf";
+		[battleIntensityLowerer] ExecVm "A3_adapt\battleIntensityChange.sqf";
 		
 
 		
-		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "MC_Adapt\musicPlayer.sqf";
+		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "A3_adapt\musicPlayer.sqf";
 		
 	};
 	sleep(0.2);
@@ -144,10 +132,10 @@ while{true} do
 }
 else
 {
-if (A3_Adapt_setting) then { isMusicActive = 1;} else {isMusicActive = 0;};
+isMusicActive = 1;
 duration = 0;
 
-If (A3_Adapt_debug) then {debugging =1;} else {debugging = 0;};
+debugging = 0;
 
 durationSinceTrackWasStarted = 0;
 wasInCarBefore = 0;
@@ -172,7 +160,7 @@ isDay = 1;
 //volume
 Volume = 0.5;
 
-ExecVm "A3_Adapt\addEventHandlerForMusic.sqf";
+ExecVm "A3_adapt\addEventHandlerForMusic.sqf";
 
 
 
@@ -193,11 +181,11 @@ while{true} do
 			volume = 0.5;
 		};
 		
-		//standart lower Battle intensity
-		[battleIntensityLowerer] ExecVm "A3_Adapt\battleIntensityChange.sqf";
+		//standard lower Battle intensity
+		[battleIntensityLowerer] ExecVm "A3_adapt\battleIntensityChange.sqf";
 		
 		
-		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "MC_Adapt\musicPlayer.sqf";
+		null = [_dayTracks, _nightTracks, _rainTracks, _fogTracks, _fallTracks, _scubaTracks, _carTracks, _tankTracks, _boatTracks, _subtracks, _heliTracks, _planeTracks, _infantrycombatTracks, _infantryfogcombatTracks, _vehiclecombatTracks] execVM "A3_adapt\musicPlayer.sqf";
 		
 	};
 	sleep(0.2);
